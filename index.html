@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صناع الحياة المحلة الكبرى - نصنع الحياة معاً</title>
+    <meta name="description" content="جمعية خيرية محلية تعمل على خدمة المجتمع من خلال التدخل السريع في الأزمات، الإطعام، كفالة الأيتام، والدعم النفسي والاجتماعي">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="logo">
+                <!-- 
+                  LOGO UPDATED: The heart icon <i class="fas fa-heart"></i> has been replaced with an <img> tag.
+                  UPDATE THIS: Change the 'src' to your actual logo file (e.g., "images/logo.png").
+                  
+                  تم تحديث الشعار: تم استبدال أيقونة القلب بـ <img>.
+                  قم بالتحديث: قم بتغيير 'src' إلى ملف الشعار الفعلي الخاص بك (مثل "images/logo.png").
+                -->
+                <img src="sonaa_logo.svg" alt="شعار صناع الحياة" class="logo-img">
+                <span class="logo-text">صناع الحياة المحلة الكبرى</span>
+            </div>
+            
+            <div class="pill-nav-container">
+                <nav class="pill-nav" id="nav-menu">
+                    <a href="#" class="nav-link active" data-page="home">
+                        <span class="label-stack"><span class="label-initial">الرئيسية</span><span class="label-hover" aria-hidden="true">الرئيسية</span></span>
+                    </a>
+                    <a href="#" class="nav-link" data-page="about">
+                        <span class="label-stack"><span class="label-initial">من نحن</span><span class="label-hover" aria-hidden="true">من نحن</span></span>
+                    </a>
+                    <a href="#" class="nav-link" data-page="programs">
+                        <span class="label-stack"><span class="label-initial">أنشطتنا</span><span class="label-hover" aria-hidden="true">أنشطتنا</span></span>
+                    </a>
+                    <a href="#" class="nav-link" data-page="volunteer">
+                        <span class="label-stack"><span class="label-initial">تطوع معنا</span><span class="label-hover" aria-hidden="true">تطوع معنا</span></span>
+                    </a>
+                    <a href="#" class="nav-link" data-page="contact">
+                        <span class="label-stack"><span class="label-initial">اتصل بنا</span><span class="label-hover" aria-hidden="true">اتصل بنا</span></span>
+                    </a>
+                </nav>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main" id="main-content">
+        <!-- Dynamic content is loaded here by js/script.js -->
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="about">من نحن</a></li>
+                        <li><a href="#" data-page="programs">أنشطتنا</a></li>
+                        <li><a href="#" data-page="volunteer">تطوع معنا</a></li>
+                        <li><a href="#" data-page="contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>برامجنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="programs">الإغاثة السريعة</a></li>
+                        <li><a href="#" data-page="programs">الإطعام</a></li>
+                        <li><a href="#" data-page="programs">كفالة الأيتام</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>شارك معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="donate">تبرع الآن</a></li>
+                        <li><a href="#" data-page="volunteer">تطوع معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-phone"></i> 01140705720</p>
+                    <p><i class="fas fa-map-marker-alt"></i> المحلة الكبرى، الغربية</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/Sonaa.Mahalla/" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/LiFeMakerS_MK" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 صناع الحياة المحلة الكبرى - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
+

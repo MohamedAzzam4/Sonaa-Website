@@ -1,0 +1,467 @@
+/* General Stylesheet for صناع الحياة المحلة الكبرى Website
+  THEME UPDATED: Primary color is now Dark Blue (#003366)
+
+  ملف الأنماط العام لموقع صناع الحياة المحلة الكبرى
+  تحديث الثيم: اللون الأساسي الآن هو الأزرق الداكن (#003366)
+*/
+
+/* --- 1. Variables and Global Styles --- */
+:root {
+    --primary-color: #003366;   
+    --secondary-color: #F39C12; 
+    --accent-color: #3498DB;    
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --dark-gray: #2c3e50;
+    --text-color: #2c3e50;
+    --border-color: #e9ecef;
+    --shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-hover: 0 5px 20px rgba(0,0,0,0.15);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    
+    /* New Program Page Colors */
+    --program-text-dark: #1a302c;
+    --program-text-gray: #666666;
+    --program-bg-light: #F5F5F5;
+    
+    /* Category Colors */
+    --cat-green: #2E7D32;
+    --cat-orange: #FF6B35;
+    --cat-blue: #1976D2;
+    --cat-dark-orange: #F57C00;
+    --cat-red: #D32F2F; /* New: Ongoing Charity - جديد: الصدقة الجارية */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.main { margin-top: 80px; }
+.section { padding: 5rem 0; }
+
+/* --- 2. Header & Pill Navigation --- */
+.header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition);
+}
+.header.scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; }
+.logo { display: flex; align-items: center; gap: 10px; }
+
+/* LOGO UPDATED: Added style for the new logo image */
+/* تحديث الشعار: تمت إضافة نمط لصورة الشعار الجديدة */
+.logo-img {
+    height: 40px; /* Adjust size as needed - عدل الحجم حسب الحاجة */
+    width: 40px;
+    object-fit: contain;
+    border-radius: 4px; /* Optional: for a slight rounding */
+}
+/* This color will now be dark blue - هذا اللون سيكون الآن أزرق داكن */
+.logo i { color: var(--primary-color); font-size: 2rem; }
+.logo-text { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+.mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-color); }
+.pill-nav-container { flex-grow: 1; display: flex; justify-content: center; }
+
+.pill-nav {
+    display: flex;
+    gap: 0.5rem;
+    background-color: var(--light-gray);
+    padding: 0.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+}
+.pill-nav a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    color: var(--text-color);
+    transition: color 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.pill-nav a.active { color: var(--white); }
+.pill-nav a::before {
+    content: '';
+    position: absolute;
+    width: 200%; padding-bottom: 200%;
+    border-radius: 50%;
+    background-color: var(--primary-color); /* This will now be dark blue - هذا سيكون الآن أزرق داكن */
+    bottom: -100%; left: 50%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: center bottom;
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+    z-index: -1;
+}
+.pill-nav a:hover::before, .pill-nav a.active::before { transform: translateX(-50%) scale(1); }
+.pill-nav a:hover, .pill-nav a.active { color: var(--white); }
+.label-stack { display: grid; place-items: center; }
+.label-initial, .label-hover { grid-area: 1 / 1; transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1); }
+.label-hover { display: block; color: var(--white); transform: translateY(150%); }
+.pill-nav a:hover .label-initial { transform: translateY(-150%); }
+.pill-nav a:hover .label-hover { transform: translateY(0); }
+
+/* --- 3. General Content & Page Styles --- */
+.section-title { text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); margin-bottom: 3rem; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -10px; right: 50%; transform: translateX(50%); width: 80px; height: 4px; background: var(--secondary-color); border-radius: 2px; }
+.page-content { padding: 2rem 0; animation: fadeInUp 0.5s ease; }
+.page-header { text-align: center; margin-bottom: 3rem; }
+.page-title { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; }
+.page-description { font-size: 1.2rem; color: var(--text-color); max-width: 600px; margin: 0 auto; }
+
+/* --- 4. Hero Section (Homepage) --- */
+/* Hero gradient is now Dark Blue -> Light Blue */
+/* تدرج الهيرو الآن من الأزرق الداكن -> الأزرق الفاتح */
+.hero { background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color: var(--white); padding: 8rem 0; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: 0; right: 0; width: 100%; height: 100%; background: url('https://pplx-res.cloudinary.com/image/upload/v1758274680/pplx_project_search_images/af250224e9571cb3caaac6c2dde32261536fc24b.png') center/cover; opacity: 0.1; z-index: 1; }
+.hero-content { position: relative; z-index: 2; }
+.hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; }
+.hero .subtitle { font-size: 1.8rem; margin-bottom: 1.5rem; }
+.hero .description { font-size: 1.2rem; margin-bottom: 3rem; max-width: 800px; margin: auto; }
+.hero-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+
+/* --- 5. Card Styles (Stats, Programs, Volunteer) --- */
+.stats-grid, .programs-grid, .benefits-grid, .opportunities-grid { display: grid; gap: 2rem; }
+.stats-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.programs-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.benefits-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 3rem; }
+.opportunities-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-bottom: 3rem; }
+
+.stat-card, .program-card, .benefit-card, .opportunity-card { background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow); transition: var(--transition); }
+.stat-card:hover, .program-card:hover, .benefit-card:hover, .opportunity-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+.stat-card { padding: 2rem; text-align: center; }
+.stat-card i, .benefit-card i { font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem; }
+.stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem; }
+.stat-label { font-size: 1.2rem; font-weight: 500; }
+
+.program-card { overflow: hidden; }
+/* Program header is now Dark Blue -> Light Blue */
+/* رأس البرنامج الآن من الأزرق الداكن -> الأزرق الفاتح */
+.program-header { background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color: var(--white); padding: 1.5rem; text-align: center; }
+.program-header i { font-size: 2.5rem; margin-bottom: 1rem; }
+.program-title { font-size: 1.3rem; font-weight: 600; }
+.program-body { padding: 1.5rem; }
+.read-more { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+
+.benefit-card { padding: 1.5rem; text-align: center; }
+.benefit-card i { font-size: 2rem; }
+.opportunity-card { padding: 2rem; }
+.opportunity-card h3 { color: var(--primary-color); margin-bottom: 1rem; }
+.opportunity-card ul { list-style-position: inside; padding-right: 1rem; }
+
+/* --- 6. Donation Page Styles --- */
+.donation-tabs { display: flex; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 0.5rem; }
+.tab-btn { padding: 0.75rem 1.5rem; background: var(--light-gray); border: 1px solid var(--border-color); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition); font-weight: 500; }
+.tab-btn.active { background: var(--primary-color); color: var(--white); border-color: var(--primary-color); }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeInUp 0.5s; }
+.donation-amounts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.amount-card { background: var(--white); border: 2px solid var(--border-color); border-radius: var(--border-radius); padding: 1.5rem; text-align: center; cursor: pointer; transition: var(--transition); }
+
+/* THEME UPDATED: Changed light green hover background to light blue */
+/* تحديث الثيم: تم تغيير خلفية المرور الخضراء الفاتحة إلى زرقاء فاتحة */
+.amount-card:hover, .amount-card.selected { border-color: var(--primary-color); background: #f0f7ff; }
+.amount { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem; }
+.impact { font-size: 0.9rem; }
+.payment-methods { margin: 2rem 0; }
+.payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+.payment-method { background: var(--white); border: 2px solid var(--border-color); border-radius: var(--border-radius); padding: 1rem; text-align: center; cursor: pointer; transition: var(--transition); }
+.payment-method:hover, .payment-method.selected { border-color: var(--primary-color); }
+
+/* --- 7. Other Component Styles --- */
+.cta { background: linear-gradient(135deg, var(--secondary-color), #e67e22); color: var(--white); text-align: center; padding: 5rem 0; }
+.org-info { background: var(--light-gray); padding: 2rem; border-radius: var(--border-radius); margin-bottom: 3rem; }
+.vision-mission { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+.vision, .mission { background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); }
+.success-story { background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color: var(--white); padding: 2rem; border-radius: var(--border-radius); text-align: center; }
+
+/* --- 8. Form Styles --- */
+.form { background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); max-width: 600px; margin: 0 auto; }
+.form-group { margin-bottom: 1.5rem; }
+.form-label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+.form-input { width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: var(--border-radius); font-size: 1rem; transition: var(--transition); }
+.form-input:focus { outline: none; border-color: var(--primary-color); }
+.form-textarea { min-height: 120px; }
+.form-select { appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23666"><path d="M7 10l5 5 5-5z"/></svg>'); background-repeat: no-repeat; background-position: left 10px center; padding-left: 30px; }
+.form-submit { width: 100%; padding: 1rem; background: var(--primary-color); color: var(--white); border: none; border-radius: var(--border-radius); font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
+
+/* THEME UPDATED: Changed hardcoded green hover to a darker blue */
+/* تحديث الثيم: تم تغيير لون المرور الأخضر الثابت إلى أزرق أغمق */
+.form-submit:hover { background: #002244; }
+
+/* --- 9. Footer --- */
+.footer { background: var(--dark-gray); color: var(--white); padding: 3rem 0 1rem; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.footer-section h3 { color: var(--secondary-color); margin-bottom: 1rem; }
+.footer-links { list-style: none; padding-right: 0; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { color: var(--white); text-decoration: none; transition: var(--transition); }
+.footer-links a:hover { color: var(--secondary-color); }
+.footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid #555; }
+.social-media { display: flex; justify-content: center; gap: 1rem; }
+.social-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--primary-color); color: var(--white); border-radius: 50%; text-decoration: none; transition: var(--transition); }
+.social-link:hover { background: var(--accent-color); transform: translateY(-3px); }
+
+/* --- 10. Utility & Modal --- */
+.back-to-top { position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background: var(--primary-color); color: var(--white); border: none; border-radius: 50%; cursor: pointer; display: none; align-items: center; justify-content: center; transition: var(--transition); z-index: 1000; }
+.back-to-top:hover { background: var(--accent-color); transform: translateY(-3px); }
+.modal { display: none; position: fixed; top: 0; right: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center; }
+.modal.show { display: flex; }
+.modal-content { background: var(--white); padding: 2rem; border-radius: var(--border-radius); max-width: 500px; width: 90%; text-align: center; position: relative; }
+.modal-close { position: absolute; top: 10px; left: 10px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-color); }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- 11. Responsive Design --- */
+@media (max-width: 992px) {
+    .pill-nav-container { display: none; } 
+    .mobile-menu-toggle { display: block; }
+    .pill-nav { 
+        display: none;
+        position: absolute; top: 100%; right: 0; width: 100%;
+        background: var(--white); box-shadow: var(--shadow);
+        flex-direction: column; padding: 1rem; gap: 1rem;
+        border-radius: 0;
+    }
+    .pill-nav.show { display: flex; }
+    .pill-nav a { background-color: transparent; }
+    .pill-nav a::before { display: none; }
+    .label-stack, .label-initial, .label-hover { all: unset; } 
+}
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .vision-mission { grid-template-columns: 1fr; }
+    .donation-tabs, .payment-grid { grid-template-columns: 1fr; }
+}
+/* --- 12. New Programs Page Styles (Based on your instructions) --- */
+/* --- 12. أنماط صفحة البرامج الجديدة (بناءً على تعليماتك) --- */
+
+.program-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+}
+
+.program-tabs .tab-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--program-text-dark);
+    background-color: var(--program-bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.program-tabs .tab-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.program-tabs .tab-btn.active {
+    background-color: var(--primary-color); /* Uses main theme color */
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.program-grid {
+    display: grid;
+    gap: 2rem;
+    /* 3 columns on Desktop */
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.program-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animation for fade-in on load */
+    animation: fadeInUp 0.5s ease-out; 
+    animation-fill-mode: backwards; /* Start hidden before animation */
+}
+
+.program-card:hover {
+    transform: translateY(-5px) scale(1.02); /* Slight lift and zoom */
+    box-shadow: var(--shadow-hover);
+}
+
+.program-card .card-image {
+    overflow: hidden;
+    line-height: 0; /* Fixes small gap under image */
+}
+
+.program-card .card-image img {
+    width: 100%;
+    aspect-ratio: 4/3; /* Enforces 4:3 ratio */
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.program-card:hover .card-image img {
+    transform: scale(1.1); /* Image zoom on hover */
+}
+
+.program-card .card-color-bar {
+    height: 5px;
+    width: 100%;
+}
+
+.program-card .card-content {
+    padding: 1.5rem;
+}
+
+.program-card .card-title {
+    font-family: 'Cairo', sans-serif; /* As requested */
+    font-size: 1.4rem; /* 22px */
+    font-weight: 700;
+    color: var(--program-text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.program-card .card-description {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem; /* 16px */
+    color: var(--program-text-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    /* Limit to 3 lines */
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 50px; /* Approx 3 lines */
+}
+
+.program-card .card-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    width: 100%; /* Make button full width */
+    max-width: 160px; /* But limit max width */
+    text-align: center;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.program-card .card-button:hover {
+    transform: scale(1.05); /* Button hover effect */
+}
+
+/* Category 1: Ramadan (Green) */
+.program-card[data-category="ramadan"] .card-color-bar,
+.program-card[data-category="ramadan"] .card-button {
+    background-color: var(--cat-green);
+}
+.program-card[data-category="ramadan"] .card-button:hover {
+    background-color: #388E3C; /* Darker green */
+}
+
+/* Category 2: Food (Orange) */
+.program-card[data-category="food"] .card-color-bar,
+.program-card[data-category="food"] .card-button {
+    background-color: var(--cat-orange);
+}
+.program-card[data-category="food"] .card-button:hover {
+    background-color: #f95a20; /* Darker orange */
+}
+
+/* Category 3: Community (Blue) */
+.program-card[data-category="community"] .card-color-bar,
+.program-card[data-category="community"] .card-button {
+    background-color: var(--cat-blue);
+}
+.program-card[data-category="community"] .card-button:hover {
+    background-color: #1E88E5; /* Darker blue */
+}
+
+/* Category 4: Social Care (Dark Orange) */
+.program-card[data-category="social"] .card-color-bar,
+.program-card[data-category="social"] .card-button {
+    background-color: var(--cat-dark-orange);
+}
+.program-card[data-category="social"] .card-button:hover {
+    background-color: #FB8C00; /* Darker orange */
+}
+
+/* Category 5: Ongoing Charity (Red) */
+/* الفئة 5: الصدقة الجارية (أحمر) */
+.program-card[data-category="ongoing-charity"] .card-color-bar,
+.program-card[data-category="ongoing-charity"] .card-button {
+    background-color: var(--cat-red);
+}
+.program-card[data-category="ongoing-charity"] .card-button:hover {
+    background-color: #E53935; /* Darker/brighter red - أحمر أفتح */
+}
+
+/* Stats and CTA for Programs Page */
+.program-stats {
+    background: var(--program-bg-light);
+    padding: 3rem;
+    margin-top: 5rem;
+    border-radius: var(--border-radius);
+}
+
+.program-stats .section-title {
+    color: var(--program-text-dark);
+}
+.program-stats .stat-card {
+    background: var(--white); /* Ensure cards are white on gray bg */
+}
+
+.program-cta {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-top: 3rem;
+}
+.program-cta h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* Responsive Grid for Programs */
+@media (max-width: 1024px) {
+    /* 2 columns on Tablet */
+    .program-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1 column on Mobile */
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+

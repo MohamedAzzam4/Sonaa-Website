@@ -1,0 +1,76 @@
+<!-- 
+  Volunteer Page Content
+  - This is the full, restored version of the volunteer page.
+  - The "Why Volunteer?" section now uses a card-based layout.
+-->
+<div class="page-content">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">تطوع معنا</h1>
+            <p class="page-description">كن جزءاً من فريقنا وساهم في صنع الفرق في مجتمعك</p>
+        </div>
+
+        <h3 class="section-title">لماذا التطوع معنا؟</h3>
+        <!-- Redesigned this section to use cards -->
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <i class="fas fa-heart"></i>
+                <h4>خدمة المجتمع المحلي</h4>
+                <p>ساهم في تحسين حياة أهل مدينتك</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>تطوير المهارات الشخصية</h4>
+                <p>اكتسب خبرات ومهارات جديدة</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-users"></i>
+                <h4>بناء علاقات اجتماعية</h4>
+                <p>تواصل مع أشخاص يشاركونك نفس القيم</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-certificate"></i>
+                <h4>شهادة تطوع معتمدة</h4>
+                <p>احصل على شهادة تطوع من الجمعية</p>
+            </div>
+        </div>
+
+        <h3 class="section-title">فرص التطوع المتاحة</h3>
+        <!-- Edit the available volunteering opportunities -->
+        <div class="opportunities-grid">
+            <div class="opportunity-card">
+                <h3>متطوع ميداني</h3>
+                <p><strong>الوصف:</strong> المشاركة في التوزيعات والقوافل الخيرية</p>
+                <ul><li>الالتزام بالمواعيد</li><li>القدرة البدنية على العمل الميداني</li></ul>
+            </div>
+            <div class="opportunity-card">
+                <h3>باحث اجتماعي</h3>
+                <p><strong>الوصف:</strong> البحث عن الحالات المستحقة وتقييمها</p>
+                <ul><li>مهارات التواصل الجيد</li><li>الأمانة والمصداقية</li></ul>
+            </div>
+            <div class="opportunity-card">
+                <h3>تصوير وإعلام</h3>
+                <p><strong>الوصف:</strong> توثيق الأنشطة والفعاليات إعلامياً</p>
+                <ul><li>خبرة في التصوير</li><li>الإبداع في التوثيق</li></ul>
+            </div>
+        </div>
+
+        <div class="form">
+            <h3>سجل كمتطوع جديد</h3>
+            <form id="volunteer-form" novalidate>
+                <div class="form-group"><label class="form-label">الاسم الكامل</label><input type="text" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">رقم الهاتف</label><input type="tel" class="form-input" required></div>
+                <div class="form-group">
+                    <label class="form-label">المجال المفضل للتطوع</label>
+                    <select class="form-input form-select" required><option value="">اختر المجال المفضل</option><option value="field">متطوع ميداني</option><option value="social">باحث اجتماعي</option><option value="media">تصوير وإعلام</option></select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">لماذا تريد التطوع معنا؟</label>
+                    <textarea class="form-input form-textarea" placeholder="اكتب أسبابك للتطوع مع الجمعية" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">سجل الآن</button>
+            </form>
+        </div>
+    </div>
+</div>
+

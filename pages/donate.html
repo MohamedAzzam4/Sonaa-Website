@@ -1,0 +1,102 @@
+<!-- 
+  Donate Page Content
+  - This is the full, restored version of the donation page.
+  - Edit donation amounts and descriptions in the 'amount-card' sections.
+  - Update bank account information at the bottom of the file.
+-->
+<div class="page-content">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">ساهم في صنع الحياة</h1>
+            <p class="page-description">تبرعك يصل مباشرة للمحتاجين بشفافية كاملة</p>
+        </div>
+
+        <div class="donation-tabs">
+            <button class="tab-btn active" data-tab="one-time">تبرع لمرة واحدة</button>
+            <button class="tab-btn" data-tab="monthly">تبرع شهري</button>
+            <button class="tab-btn" data-tab="zakat">زكاة المال</button>
+            <button class="tab-btn" data-tab="sadaqa">صدقة جارية</button>
+        </div>
+
+        <!-- One-time donation amounts. Edit data-amount, amount text, and impact text -->
+        <div id="one-time" class="tab-content active">
+            <div class="donation-amounts">
+                <div class="amount-card" data-amount="50">
+                    <div class="amount">50 جنيه</div>
+                    <div class="impact">وجبة لـ5 أشخاص</div>
+                </div>
+                <div class="amount-card" data-amount="100">
+                    <div class="amount">100 جنيه</div>
+                    <div class="impact">كرتونة مواد غذائية لأسرة</div>
+                </div>
+                <div class="amount-card" data-amount="500">
+                    <div class="amount">500 جنيه</div>
+                    <div class="impact">كفالة يتيم شهرياً</div>
+                </div>
+                <div class="amount-card" data-amount="custom">
+                    <div class="amount">مبلغ مخصص</div>
+                    <div class="impact">اختر المبلغ المناسب لك</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monthly donation amounts -->
+        <div id="monthly" class="tab-content">
+            <div class="donation-amounts">
+                <div class="amount-card" data-amount="300">
+                    <div class="amount">300 جنيه شهرياً</div>
+                    <div class="impact">كفالة أسرة شهرياً</div>
+                </div>
+                <div class="amount-card" data-amount="500">
+                    <div class="amount">500 جنيه شهرياً</div>
+                    <div class="impact">كفالة يتيم شهرياً</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="zakat" class="tab-content">
+             <p style="text-align: center; margin: 2rem 0;">احسب زكاة أموالك وتبرع بها لمساعدة الأسر المحتاجة</p>
+        </div>
+
+        <div id="sadaqa" class="tab-content">
+            <p style="text-align: center; margin: 2rem 0;">استثمر في الآخرة بصدقة جارية تنفعك بعد الممات</p>
+        </div>
+
+        <!-- Payment methods section. The logic is in js/script.js -->
+        <div class="payment-methods">
+            <h3>طرق الدفع</h3>
+            <div class="payment-grid">
+                <div class="payment-method" data-method="card"><i class="fas fa-credit-card"></i><p>بطاقات ائتمانية</p></div>
+                <div class="payment-method" data-method="fawry"><i class="fas fa-mobile-alt"></i><p>فوري</p></div>
+                <div class="payment-method" data-method="vodafone"><i class="fas fa-phone"></i><p>فودافون كاش</p></div>
+                <div class="payment-method" data-method="bank"><i class="fas fa-university"></i><p>تحويل بنكي</p></div>
+                <div class="payment-method" data-method="representative"><i class="fas fa-user"></i><p>مندوب الجمعية</p></div>
+            </div>
+        </div>
+
+        <div class="form">
+            <h3>بيانات التبرع</h3>
+            <form id="donation-form" novalidate>
+                <div class="form-group"><label class="form-label">الاسم الكامل</label><input type="text" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">البريد الإلكتروني</label><input type="email" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">رقم الهاتف</label><input type="tel" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">المبلغ (جنيه)</label><input type="number" class="form-input" id="amount-input" min="10" required></div>
+                <div class="form-group">
+                    <label class="form-label">طريقة الدفع</label>
+                    <select class="form-input form-select" name="payment-method" required><option value="">اختر طريقة الدفع</option><option value="card">بطاقة ائتمانية</option><option value="fawry">فوري</option><option value="vodafone">فودافون كاش</option><option value="bank">تحويل بنكي</option><option value="representative">مندوب الجمعية</option></select>
+                </div>
+                <button type="submit" class="form-submit">تبرع الآن</button>
+            </form>
+        </div>
+
+        <!-- EDIT BANK INFO: Change the bank account details below -->
+        <div style="background: var(--light-gray); padding: 2rem; border-radius: var(--border-radius); margin-top: 2rem; text-align: center;">
+            <h4>معلومات التحويل البنكي</h4>
+            <p><strong>رقم الحساب:</strong> 34387</p>
+            <p><strong>البنك:</strong> بنك فيصل الإسلامي فرع المحلة</p>
+            <p><strong>اسم الحساب:</strong> صناع الحياة المحلة الكبرى</p>
+            <p><strong>للتبرع عبر المندوب:</strong> 01140705720</p>
+        </div>
+    </div>
+</div>
+

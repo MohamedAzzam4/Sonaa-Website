@@ -1,0 +1,196 @@
+/* Animations Stylesheet
+  This file contains all the special effect animations for the website.
+  Each section is commented to explain how to adjust the effect.
+
+  ملف أنماط المؤثرات الحركية
+  يحتوي هذا الملف على جميع المؤثرات الحركية الخاصة بالموقع.
+  كل قسم يحتوي على تعليقات تشرح كيفية تعديل التأثير.
+*/
+
+
+/* === 1. Variables for Animations === */
+/* === 1. متغيرات للمؤثرات الحركية === */
+:root {
+    /* Star Border Button Variables */
+    /* متغيرات زر الإطار النجمي */
+    /* Changed to the brand's secondary color for high contrast */
+    /* تم التغيير إلى اللون الثانوي للعلامة التجارية لتباين عالٍ */
+    --star-color: var(--secondary-color); /* Orange/Gold Color - اللون البرتقالي/الذهبي */
+    --star-speed: 5s;          
+    --border-thickness: 4px;   /* Increased for more visibility - تمت زيادتها لتكون أكثر وضوحًا */
+    
+    /* Glare Hover Effect Variables */
+    /* متغيرات تأثير اللمعان عند المرور */
+    --glare-color: rgba(52, 152, 219, 0.4); 
+    --glare-angle: -30deg;     
+    --glare-duration: 600ms;   
+
+    /* Magic Bento Grid Effect Variables */
+    /* متغيرات تأثير شبكة بينتو السحرية */
+    --glow-color-rgb: 52, 152, 219; 
+    --bento-border-color: #dee2e6;  
+
+    /* Click Spark Effect Variables */
+    /* متغيرات تأثير الشرار عند النقر */
+    --spark-color: #3498DB;    
+    --spark-duration: 600ms;   
+    --spark-size: 2px;         
+    --spark-travel-distance: 30px; 
+}
+
+
+/* === 2. Star Border Effect === */
+/* === 2. تأثير الإطار النجمي === */
+.star-border-btn {
+    display: inline-block;
+    position: relative;
+    /* Using the global variable for consistent rounded corners */
+    /* استخدام المتغير العام لزوايا مستديرة متناسقة */
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    padding: var(--border-thickness);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--white);
+}
+.star-border-btn .border-gradient-top, 
+.star-border-btn .border-gradient-bottom {
+    position: absolute;
+    width: 300%;
+    height: 50%;
+    opacity: 0.9; /* Made slightly more opaque - تم جعله أكثر عتامة قليلاً */
+    border-radius: 50%;
+    z-index: 0;
+    background: radial-gradient(circle, var(--star-color), transparent 15%);
+}
+.star-border-btn .border-gradient-bottom {
+    bottom: -12px;
+    right: -250%;
+    animation: star-movement-bottom var(--star-speed) linear infinite alternate;
+}
+.star-border-btn .border-gradient-top {
+    top: -12px;
+    left: -250%;
+    animation: star-movement-top var(--star-speed) linear infinite alternate;
+}
+.star-border-btn .inner-content {
+    position: relative;
+    background: var(--accent-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 1rem 2.5rem;
+    border-radius: var(--border-radius); /* Use global variable */
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+.star-border-btn:hover .inner-content {
+    background-color: #2980b9;
+}
+@keyframes star-movement-bottom { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+@keyframes star-movement-top { 0% { transform: translateX(0%); } 100% { transform: translateX(100%); } }
+
+
+/* === 3. Glare Hover Effect === */
+/* === 3. تأثير اللمعان عند المرور === */
+.glare-hover {
+    position: relative;
+    overflow: hidden;
+}
+.glare-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 250%;
+    height: 100%;
+    background: linear-gradient( to right, transparent 0%, var(--glare-color) 50%, transparent 100% );
+    transform: rotate(var(--glare-angle));
+    opacity: 0;
+}
+.glare-hover:hover::before {
+    left: 150%;
+    opacity: 1;
+    transition: left var(--glare-duration) ease-in-out;
+}
+
+
+/* === 4. Magic Bento (Spotlight) Grid Effect === */
+/* === 4. تأثير شبكة بينتو السحرية (الضوء الكاشف) === */
+/* This is a generic class for any bento grid container */
+/* هذه فئة عامة لأي حاوية شبكة بينتو */
+.bento-grid {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    gap: 1.5rem; /* Increased gap for better spacing - تمت زيادة المسافة لتباعد أفضل */
+}
+/* Styles for any card inside a bento grid */
+/* أنماط لأي بطاقة داخل شبكة بينتو */
+.bento-card {
+    position: relative;
+    padding: 2rem; /* Increased padding */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--bento-border-color);
+    background-color: var(--white);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+.bento-card:hover {
+    transform: translateY(-4px);
+}
+.bento-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+        350px circle at var(--card-mouse-x, -1000px) var(--card-mouse-y, -1000px),
+        rgba(var(--glow-color-rgb), 0.5) 0%,
+        transparent 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    opacity: var(--glow-intensity, 0);
+    transition: opacity 0.15s ease-out;
+}
+/* Grid layout for the 'values' section on the About page */
+/* تخطيط الشبكة لقسم 'القيم' في صفحة 'من نحن' */
+.values-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+/* Grid layout for the Programs page */
+/* تخطيط الشبكة لصفحة 'البرامج' */
+.programs-bento-grid {
+    grid-template-columns: 1fr; /* Each program takes a full row */
+}
+
+
+/* === 5. Click Spark Effect === */
+/* === 5. تأثير الشرار عند النقر === */
+.click-spark {
+    position: absolute;
+    width: var(--spark-size);
+    height: var(--spark-size);
+    background-color: var(--spark-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    animation: spark-animation var(--spark-duration) forwards ease-out;
+}
+@keyframes spark-animation {
+    0% {
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--spark-travel-distance)) scale(0);
+        opacity: 0;
+    }
+}
+

@@ -1,0 +1,207 @@
+<!-- 
+  Programs Page Content
+  This is the completely redesigned page based on the new categorization and card layout.
+  - Images are placeholders (4:3 ratio)
+  - data-category attribute is used for filtering
+-->
+<div class="page-content">
+    <div class="container">
+        <!-- 1. Page Header -->
+        <div class="page-header" style="margin-bottom: 2rem;">
+            <h1 class="page-title">برامجنا وخدماتنا</h1>
+            <p class="page-description">نصنع الحياة معاً من خلال 9 برامج متنوعة</p>
+        </div>
+
+        <!-- 2. Filtering Tabs -->
+        <div class="program-tabs">
+            <button class="tab-btn active" data-filter="all">الكل</button>
+            <button class="tab-btn" data-filter="ramadan">الطعام </button>
+            <!-- <button class="tab-btn" data-filter="food">الإطعام المستمر</button>-->
+            <button class="tab-btn" data-filter="community">التوعية والمجتمع</button>
+            <button class="tab-btn" data-filter="social">الرعاية الاجتماعية</button>
+            <button class="tab-btn" data-filter="ongoing-charity">الصدقة الجارية</button> 
+        </div>
+
+        <!-- 3. Cards Grid -->
+        <div class="program-grid">
+            
+            <!-- Card 1: Ramadan -->
+            <div class="program-card" data-category="ramadan">
+                <div class="card-image">
+                    <img src="photos\ramadan\ramadan-1.jpg" alt="كراتين رمضان">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">كراتين رمضان - إفرح عائلة محتاجة</h3>
+                    <p class="card-description">نوفر كراتين رمضان متكاملة تحتوي على مواد غذائية أساسية تكفي أسرة من 5 أفراد طوال الشهر الكريم.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+
+            <!-- Card 2: Ramadan -->
+            <div class="program-card" data-category="ramadan">
+                <div class="card-image">
+                    <img src="photos\ramadan\Eftar-1.jpg" alt="إفطار الطريق">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">إفطار الطريق - أفطر صائم</h3>
+                    <p class="card-description">نوزع وجبات إفطار ساخنة يومياً على المارة والعابرين في شوارع المحلة الكبرى طوال شهر رمضان.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Ramadan -->
+            <div class="program-card" data-category="ramadan">
+                <div class="card-image">
+                    <img src="photos\ramadan\Eid.jpg" alt="الأضاحي">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">مشروع الأضاحي</h3>
+                    <p class="card-description">نقوم بذبح وتوزيع لحوم الأضاحي في عيد الأضحى على آلاف الأسر المستحقة في المحلة الكبرى.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+
+            <!-- Card 8: Food -->
+            <div class="program-card" data-category="ramadan">
+                <div class="card-image">
+                    <img src="photos\food\food-1.jpg" alt="الوجبات اليومية">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">توزيع الوجبات اليومية</h3>
+                    <p class="card-description">نوفر وجبات ساخنة ومغذية بشكل يومي للأسر غير القادرة والمقيمين في الشوارع.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+
+            <!-- NEW CARD 1: Ongoing Charity (Roofs) -->
+            <div class="program-card" data-category="ongoing-charity">
+                <div class="card-image">
+                    <img src="photos\ongoing-charity\roof-1.jpg" alt="تركيب أسقف">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">مشروع تركيب الأسقف</h3>
+                    <p class="card-description">نقوم بتركيب أسقف متينة وآمنة للأسر التي تعيش في بيوت بلا سقف، لحمايتهم من المطر والبرد القارس.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+
+            <!-- NEW CARD 2: Ongoing Charity (Water) -->
+            <div class="program-card" data-category="ongoing-charity">
+                <div class="card-image">
+                    <img src="photos\ongoing-charity\water-pipes.jpg" alt="وصلات مياه">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">مشروع وصلات المياه</h3>
+                    <p class="card-description">توصيل مياه شرب نظيفة للمنازل المحرومة، مما يوفر حياة كريمة ويحمي الأسر من الأمراض.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+
+            <!-- Card 5: Community -->
+            <div class="program-card" data-category="community">
+                <div class="card-image">
+                    <img src="photos\Community\awareness.jpg" alt="حملات التوعية">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">حملات التوعية المجتمعية</h3>
+                    <p class="card-description">ننظم فعاليات توعوية في الشوارع والميادين لنشر الوعي الصحي والاجتماعي والبيئي.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+
+            <!-- Card 4: Community -->
+            <div class="program-card" data-category="community">
+                <div class="card-image">
+                    <img src="photos\Community\clothesFair.jpg" alt="معارض الملابس">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">معرض الملابس الخيري - كرامة بسعر رمزي</h3>
+                    <p class="card-description">ننظم معارض شهرية لبيع ملابس بحالة ممتازة بأسعار رمزية (1-5 جنيه) للأسر المحتاجة.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+            
+            
+
+            <!-- Card 6: Social Care -->
+            <div class="program-card" data-category="social">
+                <div class="card-image">
+                    <img src="photos\social_care\zearat.jpg" alt="زيارات دار المسنين">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">زيارات دار المسنين - ابتسامة تدفئ القلوب</h3>
+                    <p class="card-description">نزور كبار السن في دور المسنين، نستمع لقصصهم، نقدم لهم الهدايا ونشاركهم أوقاتاً ممتعة.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+
+             <!-- Card 7: Social Care -->
+            <div class="program-card" data-category="social">
+                <div class="card-image">
+                    <img src="photos\social_care\kafala.jpg" alt="كفالة الأسر">
+                </div>
+                <div class="card-color-bar"></div>
+                <div class="card-content">
+                    <h3 class="card-title">كفالة الأسر المحتاجة</h3>
+                    <p class="card-description">نقدم دعم مادي وغذائي وطبي شهري للأسر الأشد احتياجاً لضمان حياة كريمة لهم.</p>
+                    <a href="#" class="card-button">اعرف المزيد</a>
+                </div>
+            </div>
+
+            
+            
+
+        </div> <!-- .program-grid -->
+
+        <!-- 4. Statistics Section -->
+        <section class="program-stats section" style="background-color: #F5F5F5; border-radius: var(--border-radius); margin-top: 5rem; padding: 3rem;">
+            <h2 class="section-title" style="color: #1a302c;">إنجازاتنا في أرقام</h2>
+            <div class="stats-grid">
+                <div class="stat-card" style="background-color: var(--white);">
+                    <div class="stat-number" data-count="5000">0</div>
+                    <div class="stat-label">وجبة شهرياً</div>
+                </div>
+                <div class="stat-card" style="background-color: var(--white);">
+                    <div class="stat-number" data-count="1200">0</div>
+                    <div class="stat-label">كرتونة رمضان</div>
+                </div>
+                <div class="stat-card" style="background-color: var(--white);">
+                    <div class="stat-number" data-count="80">0</div>
+                    <div class="stat-label">متطوع نشط</div>
+                </div>
+                <div class="stat-card" style="background-color: var(--white);">
+                    <div class="stat-number" data-count="150">0</div>
+                    <div class="stat-label">عائلة مكفولة</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Final CTA -->
+        <section class="program-cta">
+            <h2>💙 ساهم في صنع الحياة معنا</h2>
+            <div class="hero-buttons">
+                <a href="#" class="star-border-btn" data-page="donate">
+                    <div class="border-gradient-bottom"></div>
+                    <div class="border-gradient-top"></div>
+                    <div class="inner-content">تبرع الآن</div>
+                </a>
+                <a href="#" class="star-border-btn" data-page="volunteer" style="--accent-color: var(--secondary-color); --star-color: var(--primary-color);">
+                    <div class="border-gradient-bottom"></div>
+                    <div class="border-gradient-top"></div>
+                    <div class="inner-content" style="background-color: var(--secondary-color);">تطوع معنا</div>
+                </a>
+            </div>
+        </section>
+
+    </div> <!-- .container -->
+</div> <!-- .page-content -->
+
